@@ -1,0 +1,3 @@
+
+database user:- sprucelifeskills_db_user
+database password:- Spruceadmin@123

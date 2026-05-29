@@ -1,0 +1,6 @@
+{
+  "name": "Medical Coding Course",
+  "description": "Premium, mobile-first responsive landing page for the Medical Coding Course by Spruce Lifeskills, tailored for medical and paramedical students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
