@@ -247,7 +247,8 @@ export default function App() {
   };
 
   const scrollBackToForm = () => {
-    setIsFormPopupOpen(true);
+    // setIsFormPopupOpen(true);
+    window.location.href = "#lead-form"
   };
 
   const faqs = [
@@ -419,7 +420,7 @@ export default function App() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#01F182]"></span>
                   </span>
                   <span className="text-[9px] font-mono font-bold tracking-wider text-white/90 uppercase">
-                    Admissions Open | May & June 2026 Batch | Limited Seats (20–25 Only)
+                    Admissions Open | Limited Seats (20–25 Only)
 
                   </span>
                 </div>
@@ -427,8 +428,8 @@ export default function App() {
                 {/* Redesigned Headline with elegant spacing & white typography */}
                 <div className="space-y-4">
                   <h1 className="font-sans text-3.5xl sm:text-4.5xl lg:text-5xl text-white font-normal leading-[1.1] tracking-tight">
-                    Build a High-Demand Career in <strong className="font-semibold text-[#01F182]"> Medical Coding</strong> <br />
-                    with RTMNU-Approved Training
+                    <strong className="font-semibold text-[#01F182]"> Medical Coding</strong> <br />
+                    Training from an AAPC Authorized Education Partner & RTMNU-Approved Institute
                   </h1>
                   <p className="font-mono text-[10.5px] text-[#01F182]/80 uppercase tracking-widest font-black flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-[#01F182] rounded-full inline-block" />
@@ -438,7 +439,7 @@ export default function App() {
 
                 {/* Subtitle */}
                 <p className="text-zinc-300 text-xs sm:text-[13.5px] font-mono leading-relaxed max-w-xl">
-                  Get industry-focused Medical Coding training with practical learning, AAPC-aligned curriculum, recorded sessions & placement assistance.
+                  Get industry-focused Medical Coding training with AAPC-aligned curriculum, CPC preparation, practical learning, recorded sessions, and placement support to help you build a successful healthcare career.
                 </p>
 
                 {/* Neon Green Pill Trigger Button */}
@@ -457,12 +458,12 @@ export default function App() {
               {/* Upcoming Batches Glassmorphic Indicator */}
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl mt-10 p-3 max-w-md select-none">
                 <Calendar className="w-5 h-5 text-[#01F182] shrink-0" />
-                <div>
-                  <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider block font-black">Upcoming Batches</span>
-                  <div className="flex flex-wrap items-center gap-2.5 mt-1">
-                    <span className="text-xs font-bold text-white font-sans bg-emerald-500/20 text-[#01F182] border border-emerald-500/30 px-2.5 py-0.5 rounded-lg">18 May 2026</span>
-                    <span className="text-zinc-600 font-sans text-xs select-none">|</span>
-                    <span className="text-xs font-bold text-white font-sans bg-emerald-500/20 text-[#01F182] border border-emerald-500/30 px-2.5 py-0.5 rounded-lg">1 June 2026</span>
+                <div className="w-[100%]">
+                  {/* <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider block font-black">Upcoming Batches</span> */}
+                  <div className="flex flex-wrap items-center justify-between  w-[100%] gap-2.5 mt-1">
+                    <span className="text-5xl font-mono  uppercase tracking-wider block font-black">Upcoming Batches</span>
+                    {/* <span className="text-zinc-600 font-sans text-xs select-none">|</span> */}
+                    <span className="text-xl font-bold text-white font-sans bg-emerald-500/20 text-[#01F182] border border-emerald-500/30 px-2.5 py-0.5 rounded-lg">15 June 2026</span>
                   </div>
                 </div>
               </div>
@@ -472,7 +473,7 @@ export default function App() {
             </div>
 
             {/* Right panel - Dynamic Admissions Intake Form */}
-            <div ref={formRef} className="lg:col-span-5 relative flex flex-col justify-center">
+            <div ref={formRef} id="lead-form" className="lg:col-span-5 relative flex flex-col justify-center">
               <LeadForm onSubmit={handleLeadSubmit} />
             </div>
           </div>
@@ -495,7 +496,7 @@ export default function App() {
                   key={item.text}
                   className="inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 border border-white/12 rounded-full text-[11px] font-semibold text-white/88 whitespace-nowrap"
                 >
-                  <span className="text-sm leading-none">{item.icon}</span>
+                  <span className="text-xl leading-none" style={{ fontSize: "20px" }}>{item.icon}</span>
                   {item.text}
                 </span>
               ))}
@@ -545,7 +546,7 @@ export default function App() {
 
         {/* SECTION 2 */}
         {/* SECTION — WHY MEDICAL CODING? */}
-        <section className="w-full bg-white border-b border-[#E2E8F0] py-12 sm:py-16">
+        <section className="w-full bg-white border-b border-[#E2E8F0] py-4 sm:py-4">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
@@ -556,7 +557,7 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-10 bg-[#0A7A3F] rounded-full shrink-0" />
                   <div>
-                    <p className="text-[9px] font-mono font-bold uppercase tracking-[0.15em] text-zinc-400">
+                    <p className="text-[20px] font-mono font-bold uppercase tracking-[0.15em] text-zinc-400">
                       Global Domain Opportunities
                     </p>
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-zinc-950 leading-tight mt-0.5">
@@ -587,24 +588,24 @@ export default function App() {
                   <p className="text-[10px] font-mono font-bold uppercase tracking-[0.12em] text-zinc-400">
                     Career Opportunities
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-2  last:col-span-2 gap-2">
                     {[
                       { icon: <Activity className="w-3.5 h-3.5" />, label: "Medical Coder" },
-                      { icon: <FileCheck className="w-3.5 h-3.5" />, label: "Medical Coding Analyst" },
                       { icon: <ShieldAlert className="w-3.5 h-3.5" />, label: "Coding Auditor" },
-                      { icon: <Brain className="w-3.5 h-3.5" />, label: "Healthcare Documentation Specialist" },
+                      { icon: <FileCheck className="w-3.5 h-3.5" />, label: "Medical Coding Analyst" },
+
+
                       { icon: <TrendingUp className="w-3.5 h-3.5" />, label: "RCM Executive" },
+                      { icon: <Brain className="w-3.5 h-3.5" />, label: "Healthcare Documentation Specialist" },
                     ].map((item, i) => (
                       <button
                         key={i}
-                        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border text-[11px] font-bold transition-colors cursor-default select-none ${i === 4
-                          ? "bg-white border-[#0A7A3F] text-[#0A7A3F] ring-1 ring-[#0A7A3F]"
-                          : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:border-zinc-300"
-                          }`}
+                        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border text-[11px] font-bold transition-colors cursor-default select-none
+      bg-zinc-50 border-zinc-200 text-zinc-600 hover:border-zinc-300
+      ${i === 4 ? "col-span-2" : ""}
+    `}
                       >
-                        <span className={i === 4 ? "text-[#0A7A3F]" : "text-zinc-400"}>
-                          {item.icon}
-                        </span>
+                        <span className="text-zinc-400">{item.icon}</span>
                         {item.label}
                       </button>
                     ))}
@@ -670,7 +671,7 @@ export default function App() {
 
         {/* SECTION 3 — THE SPRUCE METHOD (Simplified Comparative Trust Columns) */}
         {/* SECTION — WHY SPRUCE */}
-        <section id="why-spruce" className="w-full bg-[#FAF7F0] border-b border-amber-100 py-12 sm:py-16 md:py-20 text-left">
+        <section id="why-spruce" className="w-full bg-[#FAF7F0] border-b border-amber-100 py-4 sm:py-16 md:py-20 text-left">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
             {/* Header */}
@@ -689,7 +690,7 @@ export default function App() {
             </div>
 
             {/* Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="flex overflow-auto gap-4">
               {[
                 {
                   icon: <Trophy className="w-4 h-4" />,
@@ -742,7 +743,7 @@ export default function App() {
               ].map((card, i) => (
                 <div
                   key={i}
-                  className="bg-white p-5 rounded-xl border border-zinc-150 space-y-3 shadow-2xs hover:border-zinc-300 transition-colors"
+                  className="bg-white p-5 rounded-xl border border-zinc-150 space-y-3 shadow-2xs min-w-[200px] hover:border-zinc-300 transition-colors"
                 >
                   <div className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${card.color}`}>
                     {card.icon}
@@ -757,28 +758,28 @@ export default function App() {
 
             {/* CTA */}
             <div className="flex justify-center pt-2">
-              <button
-                onClick={scrollBackToForm}
-                className="inline-flex items-center gap-2 bg-[#0A7A3F] hover:bg-[#085e30] text-white font-bold text-[11px] uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-sm cursor-pointer"
+              <a
+                href="#lead-form"
+                className="inline-flex items-center text-center gap-2 bg-[#0A7A3F] hover:bg-[#085e30] text-white font-bold text-[11px] uppercase tracking-widest px-6 py-3.5 rounded-lg transition-all shadow-sm cursor-pointer"
               >
                 <CheckCircle className="w-4 h-4" />
                 Check Eligibility Now
-              </button>
+              </a>
             </div>
 
           </div>
         </section>
         {/* SECTION 4 — CURRICULUM SYLLABUS */}
-        <section id="curriculum" className="w-full bg-[#F5F7FA] border-b border-[#E2E8F0] py-12 sm:py-16">
-          <div className="w-full max-w-3xl mx-auto px-4 sm:px-6">
+        <section id="curriculum" className="w-full bg-[#F5F7FA] border-b border-[#E2E8F0] py-12 sm:py-4">
+          <div className="w-full max-w-3xl mx-auto px-4 sm:px-4">
             <SyllabusExplorer />
           </div>
         </section>
 
 
         {/* SECTION 5 — ELIGIBILITY INTERACTIVE CHECKER Widget */}
-        <section id="eligibility-section" className="w-full bg-white border-b border-[#E2E8F0] py-12 sm:py-16">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="eligibility-section" className="w-full bg-white border-b border-[#E2E8F0] py-0 sm:py-0">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-0 lg:px-8">
             <ProgramSelector onCtaClick={scrollBackToForm} />
           </div>
         </section>
@@ -818,7 +819,7 @@ export default function App() {
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
                       className="w-full flex justify-between items-center p-4 text-left font-sans font-bold text-xs sm:text-sm text-[#1E2530] hover:bg-zinc-50 cursor-pointer bg-white"
                     >
-                      <span className="pr-4 leading-snug">{faq.q}</span>
+                      <span className="pr-4 leading-snug " style={{ fontSize: "13px" }}>{faq.q}</span>
                       <span className="text-[#0A7A3F] shrink-0">
                         {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                       </span>
@@ -864,19 +865,28 @@ export default function App() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
-                <button
-                  onClick={scrollBackToForm}
-                  className="bg-gold hover:bg-[#b87d15] text-white font-sans font-bold uppercase text-[11px] tracking-widest py-3 px-5 rounded shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                <a
+                  // onClick={scrollBackToForm}
+                  href="#lead-form"
+                  className="bg-gold hover:bg-[#b87d15] text-white font-sans font-bold uppercase text-[11px] text-center  tracking-widest py-3 px-3  rounded shadow-sm transition-all flex items-center justify-center gap-1.3 cursor-pointer"
                 >
                   Book Free Career Counseling
-                </button>
+                </a>
                 <a
                   href="https://wa.me/919595025757?text=Hi%2C%20I'm%20interested%20in%20visiting%20the%20Spruce%20Nagpur%20Campus%20for%20a%20Medical%20Coding%20Course%20consult!"
                   target="_blank"
                   rel="noreferrer"
                   className="bg-[#25D366] hover:bg-[#20ba59] text-white font-sans font-bold uppercase text-[11px] tracking-widest py-3 px-5 rounded shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <WhatsAppIcon className="w-4 h-4" /> WhatsApp Now
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 32 32"
+                    fill="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path d="M16.04 3C8.84 3 3 8.76 3 15.87c0 2.51.73 4.96 2.11 7.06L3 29l6.27-2.05a13.16 13.16 0 0 0 6.77 1.85H16c7.2 0 13.04-5.76 13.04-12.87C29.04 8.76 23.2 3 16.04 3zm0 23.55c-2.08 0-4.11-.56-5.89-1.62l-.42-.25-3.72 1.22 1.22-3.63-.27-.44a10.45 10.45 0 0 1-1.62-5.56c0-5.81 4.8-10.54 10.7-10.54 5.9 0 10.7 4.73 10.7 10.54s-4.8 10.28-10.7 10.28zm5.87-7.81c-.32-.16-1.88-.92-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.81 1.03-.99 1.24-.18.21-.36.24-.68.08-.32-.16-1.34-.49-2.56-1.56-.95-.83-1.59-1.85-1.78-2.16-.18-.32-.02-.49.14-.65.14-.14.32-.36.48-.54.16-.18.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.04 1.3 3.25c.16.21 2.24 3.42 5.43 4.79.76.33 1.36.53 1.82.68.76.24 1.45.21 2 .13.61-.09 1.88-.77 2.14-1.52.26-.75.26-1.39.18-1.52-.08-.13-.29-.21-.61-.37z" />
+                  </svg>
+                  WhatsApp Now
                 </a>
               </div>
             </div>

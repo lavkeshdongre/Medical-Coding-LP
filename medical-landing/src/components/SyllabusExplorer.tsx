@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from "motion/react";
 import { FileText, Award, Layers, Library, Check, ChevronRight, ChevronLeft } from "lucide-react";
 
 const topics = [
-  { icon: Library,  label: "Medical Coding",           sub: "RTMNU Course" },
-  { icon: FileText, label: "ICD Coding",               sub: "ICD-10-CM" },
-  { icon: Layers,   label: "CPT Coding",               sub: "Procedural Codes" },
-  { icon: Layers,   label: "HCPCS",                    sub: "Level II Codes" },
-  { icon: FileText, label: "Medical Billing",          sub: "Claims & Reimbursements" },
-  { icon: Library,  label: "Revenue Cycle Management", sub: "RCM Pipeline" },
-  { icon: FileText, label: "Anatomical Systems",       sub: "Clinical Foundations" },
-  { icon: Layers,   label: "Modifiers",                sub: "CPT & HCPCS Modifiers" },
-  { icon: Award,    label: "CPC Foundation",           sub: "AAPC Prep" },
-  { icon: Award,    label: "Exam Prep & Mock Tests",   sub: "Practice Suite" },
+  { icon: Library, label: "Medical Coding", sub: "RTMNU Course" },
+  { icon: FileText, label: "ICD Coding", sub: "ICD-10-CM" },
+  { icon: Layers, label: "CPT Coding", sub: "Procedural Codes" },
+  { icon: Layers, label: "HCPCS", sub: "Level II Codes" },
+  { icon: FileText, label: "Medical Billing", sub: "Claims & Reimbursements" },
+  { icon: Library, label: "Revenue Cycle Management", sub: "RCM Pipeline" },
+  { icon: FileText, label: "Anatomical Systems", sub: "Clinical Foundations" },
+  { icon: Layers, label: "Modifiers", sub: "CPT & HCPCS Modifiers" },
+  { icon: Award, label: "CPC Foundation", sub: "AAPC Prep" },
+  { icon: Award, label: "Exam Prep & Mock Tests", sub: "Practice Suite" },
 ];
 
 const benefits = [
@@ -31,7 +31,7 @@ export default function SyllabusExplorer() {
   const paginated = topics.slice(page * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE + ITEMS_PER_PAGE);
 
   return (
-    <div className="bg-[#121212] text-white border border-[#282828] rounded-xl p-5 sm:p-6 font-sans shadow-xl flex flex-col gap-5 relative overflow-hidden">
+    <div className="bg-[#121212] text-white border border-[#282828] rounded-xl p-5 sm:p-2 font-sans shadow-xl flex flex-col gap-5 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-0 right-0 w-44 h-44 bg-[#0A7A3F]/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-zinc-800/50 rounded-full blur-2xl pointer-events-none" />
@@ -119,9 +119,8 @@ export default function SyllabusExplorer() {
             <button
               key={idx}
               onClick={() => setPage(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                page === idx ? "w-5 bg-[#1DB954]" : "w-1.5 bg-zinc-700 hover:bg-zinc-500"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${page === idx ? "w-5 bg-[#1DB954]" : "w-1.5 bg-zinc-700 hover:bg-zinc-500"
+                }`}
               aria-label={`Page ${idx + 1}`}
             />
           ))}
@@ -153,7 +152,7 @@ export default function SyllabusExplorer() {
               <span className="text-[12px] font-bold text-white leading-snug">
                 {b}
               </span>
-              <ChevronRight className="w-3.5 h-3.5 text-zinc-600 ml-auto shrink-0" />
+              {/* <ChevronRight className="w-3.5 h-3.5 text-zinc-600 ml-auto shrink-0" /> */}
             </div>
           ))}
         </div>

@@ -113,7 +113,7 @@ export default function WhoCanApply({ onCtaClick }) {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-3">
+        {/* <div className="grid grid-cols-3 gap-3">
           {[
             { v: "3500+", l: "Students trained" },
             { v: "10+", l: "Eligible degrees" },
@@ -142,7 +142,7 @@ export default function WhoCanApply({ onCtaClick }) {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Degree Chips */}
         <div className="space-y-3">
@@ -165,15 +165,15 @@ export default function WhoCanApply({ onCtaClick }) {
                   style={
                     active
                       ? {
-                          background: "#01F182",
-                          color: "#0e1f1a",
-                          border: "1px solid #01F182",
-                        }
+                        background: "#01F182",
+                        color: "#0e1f1a",
+                        border: "1px solid #01F182",
+                      }
                       : {
-                          background: "rgba(1,241,130,0.07)",
-                          color: "#b2f5d8",
-                          border: "1px solid rgba(1,241,130,0.25)",
-                        }
+                        background: "rgba(1,241,130,0.07)",
+                        color: "#b2f5d8",
+                        border: "1px solid rgba(1,241,130,0.25)",
+                      }
                   }
                 >
                   {active && (
@@ -330,10 +330,9 @@ export default function WhoCanApply({ onCtaClick }) {
             or already graduated, this program is designed to help you build a
             high-paying career in healthcare coding.{" "}
             <strong style={{ color: "#01F182", fontWeight: 800 }}>
-              No prior experience required
+              No prior experience required.
             </strong>{" "}
-            — we train you from absolute scratch, covering anatomy, coding
-            systems, global modifiers, and CPC® exam prep entirely.
+
           </p>
         </div>
 

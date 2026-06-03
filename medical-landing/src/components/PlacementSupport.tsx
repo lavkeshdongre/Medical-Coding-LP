@@ -70,21 +70,17 @@ export default function PlacementSupport({ onCtaClick }) {
         {/* Intro */}
         <div className="bg-white rounded-2xl border border-zinc-200 p-5 sm:p-6">
           <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed font-medium">
-            At{" "}
-            <span className="font-bold text-[#0A7A3F]">
-              Spruce Lifeskills
-            </span>
-            , learning doesn’t stop at training. We help students become
+            At Spruce Lifeskills, learning doesn’t stop at training. We help students become
             industry-ready with complete placement and career support.
           </p>
         </div>
 
         {/* Support Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="flex overflow-auto gap-4">
           {supports.map((item, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl border border-zinc-200 p-5 space-y-3 hover:border-[#0A7A3F] hover:-translate-y-1 transition-all duration-200"
+              className="bg-white min-w-[200px] rounded-xl border border-zinc-200 p-5 space-y-3 hover:border-[#0A7A3F] hover:-translate-y-1 transition-all duration-200"
             >
               <div
                 className={`w-9 h-9 rounded-lg border flex items-center justify-center ${item.color}`}
@@ -103,54 +99,6 @@ export default function PlacementSupport({ onCtaClick }) {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Placement Highlight */}
-        <div className="rounded-2xl bg-[#0A7A3F] p-6 sm:p-7 text-white flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
-          <div className="space-y-2">
-            <p className="text-[10px] uppercase tracking-[0.22em] font-bold text-emerald-200 font-mono">
-              Placement Excellence
-            </p>
-
-            <h3 className="text-2xl sm:text-3xl font-black leading-tight">
-              50+ Recruitment Partners Across India
-            </h3>
-
-            <p className="text-sm text-emerald-50 leading-relaxed max-w-2xl">
-              Our students consistently receive opportunities from healthcare,
-              RCM, medical coding, and multinational healthcare organizations.
-            </p>
-          </div>
-
-          <div className="flex gap-4 flex-wrap">
-            {[
-              "37 Months Continuous Placements",
-              "Industry Hiring Connections",
-              "Healthcare Career Mentorship",
-            ].map((point, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 bg-white/10 border border-white/10 rounded-xl px-4 py-3"
-              >
-                <CheckCircle2 className="w-4 h-4 text-[#01F182]" />
-
-                <span className="text-xs font-bold">
-                  {point}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="flex justify-center">
-          <button
-            onClick={onCtaClick}
-            className="inline-flex items-center gap-2 bg-[#0A7A3F] hover:bg-[#085e30] text-white font-black text-[11px] uppercase tracking-widest px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg"
-          >
-            <Briefcase className="w-4 h-4" />
-            Explore Career Opportunities
-          </button>
         </div>
 
       </div>

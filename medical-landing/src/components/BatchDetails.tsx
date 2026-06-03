@@ -68,7 +68,7 @@ export default function BatchDetails({ onCtaClick }) {
             {/* Check list */}
             <ul className="space-y-2.5">
               {[
-                "Batch: 1 June 2026",
+                "Batch: 15 June 2026",
                 "Mode: Online & Offline (Nagpur Campus)",
                 "Batch Size: 20–25 Students Only",
               ].map((item, i) => (
@@ -116,7 +116,7 @@ export default function BatchDetails({ onCtaClick }) {
                       className="text-xs font-mono font-bold"
                       style={{ color: "#e2f5ec" }}
                     >
-                      1 June 2026 Cohort:
+                      15 June 2026 Cohort:
                     </span>
                     <span
                       className="text-xs font-mono font-black"

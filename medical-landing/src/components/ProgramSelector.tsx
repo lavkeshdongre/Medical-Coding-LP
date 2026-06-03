@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  GraduationCap, Clock, Check, Zap, MessageSquare, Award, Users, ChevronRight
+  GraduationCap, Clock, Check, Zap, MessageSquare, Award, Users, ChevronRight, ChevronLeft
 } from "lucide-react";
 
 const programs = [
@@ -90,16 +90,50 @@ const programs = [
 export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void }) {
   const [active, setActive] = useState(1);
   const [tab, setTab] = useState<"subjects" | "benefits">("subjects");
+  const scrollRef = useRef<HTMLDivElement>(null);
   const prog = programs[active];
 
+  const scrollToIndex = (idx: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const pill = container.children[idx] as HTMLElement;
+    if (pill) {
+      pill.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  };
+
+  const handlePillClick = (i: number) => {
+    setActive(i);
+    setTab("subjects");
+    setTimeout(() => scrollToIndex(i), 0);
+  };
+
+  const handlePrev = () => {
+    if (active > 0) {
+      const next = active - 1;
+      setActive(next);
+      setTab("subjects");
+      scrollToIndex(next);
+    }
+  };
+
+  const handleNext = () => {
+    if (active < programs.length - 1) {
+      const next = active + 1;
+      setActive(next);
+      setTab("subjects");
+      scrollToIndex(next);
+    }
+  };
+
   return (
-    <section className="w-full bg-[#F5F7FA] border-b border-[#E2E8F0] py-12 sm:py-16">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-7">
+    <section className="w-full bg-[#F5F7FA] border-b border-[#E2E8F0] py-12 sm:py-0 ">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-0 lg:px-8 space-y-7">
 
         {/* Section Header */}
         <div className="space-y-2">
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-            <GraduationCap className="w-3 h-3" /> Multiple Career Pathways Available
+          <span className="inline-flex items-center gap-1.5 text-[16px] font-mono font-bold uppercase tracking-widest text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+            <GraduationCap className="w-5 h-5" /> Multiple Career Pathways Available
           </span>
           <h2 className="font-sans font-black text-2xl sm:text-3xl text-zinc-950 leading-tight">
             Choose the Right Medical Coding Program
@@ -109,7 +143,7 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
           </p>
         </div>
 
-        {/* Main Card — matches reference image dark card */}
+        {/* Main Card */}
         <div className="bg-[#121212] rounded-xl border border-[#282828] overflow-hidden shadow-xl">
 
           {/* Card Top Label */}
@@ -121,11 +155,11 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
               Select Your Program Track
             </h3>
             <p className="text-[10.5px] text-zinc-400 font-medium mt-0.5 mb-4">
-              Compare programs side-by-side. Tap a duration to explore.
+              Compare programs side-by-side. Use arrows or tap a duration to explore.
             </p>
           </div>
 
-          {/* Duration Selector — horizontal scroll pill strip exactly like reference */}
+          {/* Duration Selector with Arrows */}
           <div className="px-5 mb-1">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[9px] font-mono font-black uppercase tracking-widest text-zinc-500">
@@ -136,22 +170,50 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
               </span>
             </div>
 
-            {/* Horizontal scrollable pill row */}
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory">
-              {programs.map((p, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setActive(i); setTab("subjects"); }}
-                  className="flex-shrink-0 snap-start px-4 py-2.5 rounded-lg border font-sans font-black text-[11px] transition-all cursor-pointer focus:outline-none whitespace-nowrap"
-                  style={{
-                    background: active === i ? "#0A7A3F" : "rgba(255,255,255,0.05)",
-                    borderColor: active === i ? "#0A7A3F" : "rgba(255,255,255,0.1)",
-                    color: active === i ? "#ffffff" : "rgba(255,255,255,0.55)",
-                  }}
-                >
-                  {p.duration}
-                </button>
-              ))}
+            {/* Arrow + Scroll Row */}
+            <div className="flex items-center gap-2">
+
+              {/* Left Arrow */}
+              <button
+                onClick={handlePrev}
+                disabled={active === 0}
+                className="flex-shrink-0 w-8 h-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all cursor-pointer focus:outline-none disabled:opacity-20 disabled:cursor-not-allowed text-white"
+                aria-label="Previous program"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {/* Horizontally scrollable pill row */}
+              <div
+                ref={scrollRef}
+                className="flex gap-2 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory flex-1"
+              >
+                {programs.map((p, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handlePillClick(i)}
+                    className="flex-shrink-0 snap-start px-4 py-2.5 rounded-lg border font-sans font-black text-[11px] transition-all cursor-pointer focus:outline-none whitespace-nowrap"
+                    style={{
+                      background: active === i ? "#0A7A3F" : "rgba(255,255,255,0.05)",
+                      borderColor: active === i ? "#0A7A3F" : "rgba(255,255,255,0.1)",
+                      color: active === i ? "#ffffff" : "rgba(255,255,255,0.55)",
+                    }}
+                  >
+                    {p.duration}
+                  </button>
+                ))}
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={handleNext}
+                disabled={active === programs.length - 1}
+                className="flex-shrink-0 w-8 h-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all cursor-pointer focus:outline-none disabled:opacity-20 disabled:cursor-not-allowed text-white"
+                aria-label="Next program"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+
             </div>
           </div>
 
@@ -190,7 +252,8 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
                 </p>
               </div>
 
-              {/* Two stat boxes — like reference "Estimated Monthly Outlay / Down-payment" */}
+              {/* Two stat boxes */}
+              {/*               
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-white/5 border border-white/8 rounded-lg px-3.5 py-3">
                   <p className="text-[8.5px] font-mono font-bold uppercase tracking-wider text-zinc-500 mb-1">
@@ -211,7 +274,7 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
                   <p className="text-[9px] text-zinc-500 font-medium mt-0.5">Included</p>
                 </div>
               </div>
-
+ */}
               {/* Tab Switcher */}
               <div className="flex bg-white/5 rounded-lg p-1 gap-1">
                 {(["subjects", "benefits"] as const).map((t) => (
@@ -250,25 +313,13 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
                       <span className="text-[11.5px] font-semibold text-zinc-200 leading-snug flex-1">
                         {item}
                       </span>
-                      <ChevronRight className="w-3 h-3 text-zinc-700 shrink-0" />
+                      {/* <ChevronRight className="w-3 h-3 text-zinc-700 shrink-0" /> */}
                     </div>
                   ))}
                 </motion.div>
               </AnimatePresence>
 
-              {/* Bottom bullets — like reference green/amber dots */}
-              {/* <div className="space-y-1.5 pt-1 border-t border-white/5">
-                <div className="flex items-center gap-2 text-[10.5px] font-semibold text-zinc-300">
-                  <span className="w-2 h-2 rounded-full bg-[#1DB954] shrink-0" />
-                  Easy Zero Cost Installments Available
-                </div>
-                <div className="flex items-center gap-2 text-[10.5px] font-semibold text-zinc-300">
-                  <span className="w-2 h-2 rounded-full bg-[#D4921C] shrink-0" />
-                  Nagpur Local Student Bank Partnerships Approved
-                </div>
-              </div> */}
-
-              {/* CTA — full width green exactly like reference */}
+              {/* CTA */}
               <button
                 onClick={onCtaClick}
                 className="w-full bg-[#0A7A3F] hover:bg-[#085e30] text-white font-black text-[11px] uppercase tracking-[0.15em] py-3.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2 mt-1"

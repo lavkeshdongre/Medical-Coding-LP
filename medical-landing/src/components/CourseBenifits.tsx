@@ -98,11 +98,11 @@ export default function CourseBenefits({ onCtaClick }) {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="flex overflow-auto gap-4">
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="bg-white p-5 rounded-xl border border-zinc-150 space-y-3 shadow-2xs hover:border-[#0A7A3F] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+              className="bg-white p-5 rounded-xl min-w-[200px] border border-zinc-150 space-y-3 shadow-2xs hover:border-[#0A7A3F] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
             >
               <div
                 className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${b.iconBg}`}
