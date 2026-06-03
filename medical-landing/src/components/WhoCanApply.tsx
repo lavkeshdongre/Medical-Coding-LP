@@ -146,12 +146,12 @@ export default function WhoCanApply({ onCtaClick }) {
 
         {/* Degree Chips */}
         <div className="space-y-3">
-          <p
+          {/* <p
             className="text-[9px] font-mono font-bold uppercase tracking-widest"
             style={{ color: "rgba(1,241,130,0.6)" }}
           >
             Tap your qualification to check eligibility
-          </p>
+          </p> */}
 
           <div className="flex flex-wrap gap-2">
             {DEGREES.map((deg) => {
@@ -160,7 +160,7 @@ export default function WhoCanApply({ onCtaClick }) {
               return (
                 <button
                   key={deg}
-                  onClick={() => setSelected(active ? null : deg)}
+                  // onClick={() => setSelected(active ? null : deg)}
                   className="flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] font-bold font-mono transition-all duration-200 cursor-pointer"
                   style={
                     active
@@ -317,7 +317,7 @@ export default function WhoCanApply({ onCtaClick }) {
             border: "1px solid rgba(1,241,130,0.18)",
           }}
         >
-          <span className="text-xl shrink-0 mt-0.5">🎯</span>
+          {/* <span className="text-xl shrink-0 mt-0.5">🎯</span> */}
 
           <p
             className="text-xs leading-relaxed font-medium"

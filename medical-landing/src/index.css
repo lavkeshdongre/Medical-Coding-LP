@@ -126,3 +126,41 @@ h1 b, h2 b, h3 b, h4 b, h5 b, h6 b {
   text-transform: inherit;
 }
 
+/* Trust Grid Responsive Borders */
+.trust-grid-item {
+  border-right: 1px solid rgba(1,241,130,0.12);
+  border-bottom: 1px solid rgba(1,241,130,0.12);
+}
+/* Mobile (2 cols) */
+@media (max-width: 639px) {
+  .trust-grid-item:nth-child(2n) {
+    border-right: none;
+  }
+  .trust-grid-item:nth-child(n+5) {
+    border-bottom: none;
+  }
+}
+/* Tablet (3 cols) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .trust-grid-item {
+    border-right: 1px solid rgba(1,241,130,0.12);
+    border-bottom: 1px solid rgba(1,241,130,0.12);
+  }
+  .trust-grid-item:nth-child(3n) {
+    border-right: none;
+  }
+  .trust-grid-item:nth-child(n+4) {
+    border-bottom: none;
+  }
+}
+/* Desktop (6 cols) */
+@media (min-width: 1024px) {
+  .trust-grid-item {
+    border-bottom: none;
+    border-right: 1px solid rgba(1,241,130,0.12);
+  }
+  .trust-grid-item:last-child {
+    border-right: none;
+  }
+}
+

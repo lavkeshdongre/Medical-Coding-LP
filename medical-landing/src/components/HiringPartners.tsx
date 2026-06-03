@@ -40,7 +40,7 @@ const partners = [
   },
 ];
 
-function LogoCard({ partner }) {
+function LogoCard({ partner }: { partner: { name: string; domain: string; logo: string }; key?: any }) {
   const [imgError, setImgError] = React.useState(false);
 
   const initials = partner.name

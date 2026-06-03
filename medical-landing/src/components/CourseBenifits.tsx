@@ -74,6 +74,9 @@ export default function CourseBenefits({ onCtaClick }) {
     },
   ];
 
+  // Duplicate benefits for a seamless looping marquee
+  const track = [...benefits, ...benefits];
+
   return (
     <section className="w-full bg-[#FAF7F0] border-b border-amber-100 py-12 sm:py-16 text-left">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -83,9 +86,9 @@ export default function CourseBenefits({ onCtaClick }) {
           <div className="flex items-start gap-3.5">
             <div className="w-1 h-14 bg-[#0A7A3F] rounded-full shrink-0 mt-1" />
             <div>
-              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest block">
+              <div className="text-[11px] font-mono text-zinc-400 font-bold uppercase tracking-widest block">
                 Program Differentiators
-              </span>
+              </div>
               <h2 className="font-sans font-black text-xl sm:text-2xl text-zinc-950 mt-1 leading-tight">
                 What Makes This Program Different?
               </h2>
@@ -97,47 +100,86 @@ export default function CourseBenefits({ onCtaClick }) {
           </div>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="flex overflow-auto gap-4">
-          {benefits.map((b, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-xl min-w-[200px] border border-zinc-150 space-y-3 shadow-2xs hover:border-[#0A7A3F] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
-            >
+        {/* Benefits Marquee Scrolling Track */}
+        <div className="relative overflow-hidden w-full py-2">
+          {/* Left fade */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to right, #FAF7F0 0%, transparent 100%)",
+            }}
+          />
+          {/* Right fade */}
+          <div
+            className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to left, #FAF7F0 0%, transparent 100%)",
+            }}
+          />
+
+          {/* Scrolling track wrapper */}
+          <div
+            className="flex gap-4 w-max benefits-track"
+            style={{
+              animation: "marquee-benefits 45s linear infinite",
+              paddingLeft: "16px",
+              paddingRight: "16px",
+            }}
+          >
+            {track.map((b, i) => (
               <div
-                className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${b.iconBg}`}
+                key={i}
+                className="bg-white p-5 rounded-xl w-[280px] shrink-0 border border-zinc-150 space-y-3 shadow-2xs hover:border-[#0A7A3F] hover:-translate-y-0.5 transition-all duration-200 cursor-default flex flex-col justify-between"
               >
-                {b.icon}
+                <div className="space-y-3">
+                  <div
+                    className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${b.iconBg}`}
+                  >
+                    {b.icon}
+                  </div>
+
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-bold text-zinc-950 leading-tight">
+                      {b.title}
+                    </h3>
+
+                    <p className="text-xs text-zinc-500 leading-relaxed font-medium">
+                      {b.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md w-fit">
+                  <svg
+                    className="w-2.5 h-2.5"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg>
+                  {b.pill}
+                </div>
               </div>
-
-              <div className="space-y-1">
-                <h3 className="text-sm font-bold text-zinc-950 leading-tight">
-                  {b.title}
-                </h3>
-
-                <p className="text-xs text-zinc-500 leading-relaxed font-medium">
-                  {b.desc}
-                </p>
-              </div>
-
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">
-                <svg
-                  className="w-2.5 h-2.5"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="2,6 5,9 10,3" />
-                </svg>
-
-                {b.pill}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* Marquee Keyframes and Hover-Pause Injector */}
+        <style>{`
+          @keyframes marquee-benefits {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .benefits-track:hover {
+            animation-play-state: paused !important;
+          }
+        `}</style>
 
         {/* CTA */}
         <div className="flex justify-center pt-2">

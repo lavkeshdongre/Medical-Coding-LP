@@ -132,9 +132,9 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
 
         {/* Section Header */}
         <div className="space-y-2">
-          <span className="inline-flex items-center gap-1.5 text-[16px] font-mono font-bold uppercase tracking-widest text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+          <div className="inline-flex items-center gap-1.5 text-[16px] font-mono font-bold uppercase tracking-widest text-[#0A7A3F] bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
             <GraduationCap className="w-5 h-5" /> Multiple Career Pathways Available
-          </span>
+          </div>
           <h2 className="font-sans font-black text-2xl sm:text-3xl text-zinc-950 leading-tight">
             Choose the Right Medical Coding Program
           </h2>
@@ -162,12 +162,12 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
           {/* Duration Selector with Arrows */}
           <div className="px-5 mb-1">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[9px] font-mono font-black uppercase tracking-widest text-zinc-500">
+              <div className="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-500">
                 Program Duration
-              </span>
-              <span className="text-[9px] font-mono font-bold bg-[#0A7A3F]/20 text-[#1DB954] border border-[#0A7A3F]/30 px-2 py-0.5 rounded-full">
+              </div>
+              <div className="text-[11px] font-mono font-bold bg-[#0A7A3F]/20 text-[#1DB954] border border-[#0A7A3F]/30 px-2.5 py-0.5 rounded-full">
                 Zero % Interest EMI
-              </span>
+              </div>
             </div>
 
             {/* Arrow + Scroll Row */}
@@ -233,23 +233,23 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
               {/* Program Title + Meta */}
               <div className="space-y-1.5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[9px] font-black uppercase tracking-wider bg-[#0A7A3F]/20 text-[#1DB954] border border-[#0A7A3F]/30 px-2.5 py-0.5 rounded-full">
+                  <div className="text-[11px] font-black uppercase tracking-wider bg-[#0A7A3F]/20 text-[#1DB954] border border-[#0A7A3F]/30 px-2.5 py-0.5 rounded-full">
                     {prog.badge}
-                  </span>
-                  <span className="text-[9px] font-mono text-zinc-500 flex items-center gap-1">
-                    <Clock className="w-2.5 h-2.5 text-[#0A7A3F]" /> {prog.duration}
-                  </span>
-                  <span className="text-[9px] font-mono text-zinc-500 flex items-center gap-1">
-                    <Award className="w-2.5 h-2.5 text-[#0A7A3F]" /> {prog.level}
-                  </span>
+                  </div>
+                  <div className="text-[11.5px] font-mono text-zinc-500 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-[#0A7A3F]" /> {prog.duration}
+                  </div>
+                  <div className="text-[11.5px] font-mono text-zinc-500 flex items-center gap-1">
+                    <Award className="w-3 h-3 text-[#0A7A3F]" /> {prog.level}
+                  </div>
                 </div>
                 <h4 className="text-sm font-black text-white leading-snug">
                   {prog.title}
                 </h4>
-                <p className="text-[10.5px] text-zinc-400 leading-relaxed flex items-start gap-1.5">
-                  <Users className="w-3 h-3 shrink-0 mt-0.5 text-[#0A7A3F]" />
-                  <span><span className="text-zinc-300 font-bold">Ideal for:</span> {prog.idealFor}</span>
-                </p>
+                <div className="text-[12px] text-zinc-400 leading-relaxed flex items-start gap-1.5">
+                  <Users className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#0A7A3F]" />
+                  <div><strong className="text-zinc-300 font-bold">Ideal for:</strong> {prog.idealFor}</div>
+                </div>
               </div>
 
               {/* Two stat boxes */}
@@ -310,9 +310,9 @@ export default function ProgramSelector({ onCtaClick }: { onCtaClick: () => void
                       <div className="w-4 h-4 rounded-full bg-[#0A7A3F]/25 border border-[#0A7A3F]/40 flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 text-[#1DB954]" />
                       </div>
-                      <span className="text-[11.5px] font-semibold text-zinc-200 leading-snug flex-1">
+                      <div className="text-[13px] font-semibold text-zinc-200 leading-snug flex-1">
                         {item}
-                      </span>
+                      </div>
                       {/* <ChevronRight className="w-3 h-3 text-zinc-700 shrink-0" /> */}
                     </div>
                   ))}

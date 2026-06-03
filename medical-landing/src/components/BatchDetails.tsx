@@ -41,12 +41,12 @@ export default function BatchDetails({ onCtaClick }) {
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
                 style={{ background: "#D4921C" }}
               />
-              <span
-                className="text-[9px] font-mono font-black uppercase tracking-[0.18em]"
+              <div
+                className="text-[11px] font-mono font-black uppercase tracking-[0.18em]"
                 style={{ color: "#D4921C" }}
               >
                 Batch Reservations Almost Closed
-              </span>
+              </div>
             </div>
 
             {/* Headline */}
@@ -77,12 +77,12 @@ export default function BatchDetails({ onCtaClick }) {
                     className="w-4 h-4 shrink-0 mt-0.5"
                     style={{ color: "#01F182" }}
                   />
-                  <span
-                    className="text-xs font-mono font-bold"
+                  <div
+                    className="text-[15px] font-mono font-bold"
                     style={{ color: "#b2f5d8" }}
                   >
                     {item}
-                  </span>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -112,21 +112,21 @@ export default function BatchDetails({ onCtaClick }) {
                 {/* 1 June 2026 — dynamic */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span
-                      className="text-xs font-mono font-bold"
+                    <div
+                      className="text-[15px] font-mono font-bold"
                       style={{ color: "#e2f5ec" }}
                     >
                       15 June 2026 Cohort:
-                    </span>
-                    <span
-                      className="text-xs font-mono font-black"
+                    </div>
+                    <div
+                      className="text-[15px] font-mono font-black"
                       style={{
                         color: juneSeats <= 3 ? "#E8372F" : "#D4921C",
                       }}
                     >
                       {juneSeats} seats left
                       {juneSeats <= 3 ? "!" : ""}
-                    </span>
+                    </div>
                   </div>
                   {/* Progress bar */}
                   <div
@@ -148,7 +148,7 @@ export default function BatchDetails({ onCtaClick }) {
                     />
                   </div>
                   <p
-                    className="text-[9px] font-mono"
+                    className="text-[12px] font-mono"
                     style={{ color: "rgba(155,191,174,0.6)" }}
                   >
                     {juneFilled} of 25 seats reserved

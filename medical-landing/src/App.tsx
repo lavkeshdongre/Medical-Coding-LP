@@ -141,7 +141,7 @@ export default function App() {
             x: {
               grid: { color: "rgba(0,0,0,0.05)" },
               ticks: {
-                font: { size: 10, weight: "600" },
+                font: { size: 10, weight: 600 },
                 color: "#888",
                 maxRotation: 0,
                 callback: (_, i) => labels[i].split("\n"),
@@ -450,7 +450,7 @@ export default function App() {
                   >
                     Book Free Career Counseling
                   </button>
-                  <span className="text-[10px] font-mono text-zinc-400 select-none hidden sm:inline">
+                  <span className="text-[15px] font-mono text-zinc-400 select-none hidden sm:inline" style={{ fontSize: "15px" }}>
                     Nagpur's No. 1 Academy Since 2013
                   </span>
                 </div>
@@ -458,12 +458,10 @@ export default function App() {
               {/* Upcoming Batches Glassmorphic Indicator */}
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl mt-10 p-3 max-w-md select-none">
                 <Calendar className="w-5 h-5 text-[#01F182] shrink-0" />
-                <div className="w-[100%]">
-                  {/* <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider block font-black">Upcoming Batches</span> */}
-                  <div className="flex flex-wrap items-center justify-between  w-[100%] gap-2.5 mt-1">
-                    <span className="text-5xl font-mono  uppercase tracking-wider block font-black">Upcoming Batches</span>
-                    {/* <span className="text-zinc-600 font-sans text-xs select-none">|</span> */}
-                    <span className="text-xl font-bold text-white font-sans bg-emerald-500/20 text-[#01F182] border border-emerald-500/30 px-2.5 py-0.5 rounded-lg">15 June 2026</span>
+                <div className="w-full">
+                  <div className="flex items-center justify-between w-full gap-2">
+                    <span className="font-mono text-white uppercase tracking-wider font-black" style={{ fontSize: "13px" }}>Upcoming Batches</span>
+                    <span className="text-xl font-bold text-white font-sans bg-emerald-500/20 text-[#01F182] border border-emerald-500/30 px-2.5 py-0.5 rounded-lg whitespace-nowrap" style={{ fontSize: "15px" }}>15 June 2026</span>
                   </div>
                 </div>
               </div>
@@ -488,17 +486,73 @@ export default function App() {
             {/* Course mode pills */}
             <div className="flex flex-wrap gap-2">
               {[
-                { icon: "🎓", text: "Online & Offline Available" },
-                { icon: "💳", text: "EMI & Flexible Payment Options" },
-                { icon: "🎥", text: "Recorded Sessions Available" },
+                {
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                      <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+                    </svg>
+                  ),
+                  text: "Online & Offline Available",
+                },
+                {
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="5" width="20" height="14" rx="2" />
+                      <line x1="2" y1="10" x2="22" y2="10" />
+                    </svg>
+                  ),
+                  text: "EMI & Flexible Payment Options",
+                },
+                {
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="7" width="15" height="10" rx="2" />
+                      <polygon points="17,10 22,7 22,17 17,14" />
+                    </svg>
+                  ),
+                  text: "Recorded Sessions Available",
+                },
               ].map((item) => (
-                <span
+                <div
                   key={item.text}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 border border-white/12 rounded-full text-[11px] font-semibold text-white/88 whitespace-nowrap"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 border border-white/12 rounded-full text-[13px] font-semibold text-white/88 whitespace-nowrap"
                 >
-                  <span className="text-xl leading-none" style={{ fontSize: "20px" }}>{item.icon}</span>
+                  <span className="flex items-center justify-center text-[#D4AF37]">
+                    {item.icon}
+                  </span>
                   {item.text}
-                </span>
+                </div>
               ))}
             </div>
 
@@ -520,11 +574,7 @@ export default function App() {
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2.5 px-3.5 py-3"
-                    style={{
-                      borderRight: (i % 2 === 0) ? "1px solid rgba(1,241,130,0.12)" : "none",
-                      borderBottom: (i < 4) ? "1px solid rgba(1,241,130,0.12)" : "none",
-                    }}
+                    className="flex items-center gap-2.5 px-3.5 py-3 trust-grid-item"
                   >
                     <span className="w-5 h-5 rounded-full bg-[#01F182]/20 flex items-center justify-center shrink-0">
                       <svg className="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" stroke="#01F182" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -532,8 +582,8 @@ export default function App() {
                       </svg>
                     </span>
                     <div>
-                      <div className="text-[11px] font-bold text-white/85 leading-tight">{stat.value}</div>
-                      <div className="text-[9px] font-medium text-[#01F182]/65 mt-0.5 leading-none">{stat.sub}</div>
+                      <div className="text-[13px] font-bold text-white/85 leading-tight">{stat.value}</div>
+                      <div className="text-[10px] font-medium text-[#01F182]/65 mt-0.5 leading-none">{stat.sub}</div>
                     </div>
                   </div>
                 ))}
@@ -899,19 +949,19 @@ export default function App() {
 
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="leading-relaxed font-semibold">
+                <div className="leading-relaxed font-semibold text-[13px]">
                   3rd Floor, NavPrabhat Chambers, Beside ICICI Bank, Near Lokmat Square, Ramdaspeth, Nagpur – 440010
-                </span>
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span className="font-semibold">+91 95950 25757</span>
+                <div className="font-semibold text-[13px]">+91 95950 25757</div>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span className="font-semibold">sprucelifeskills@gmail.com</span>
+                <div className="font-semibold text-[13px]">sprucelifeskills@gmail.com</div>
               </div>
 
               <div className="pt-4 border-t border-white/5 flex justify-between items-center text-[9px] text-zinc-500">
@@ -975,6 +1025,21 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919595025757?text=Hi%20Spruce%20Nagpur,%20I%20am%20interested%20in%20the%20Medical%20Coding%20Training%20program.%20Please%20share%20details."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed right-1 bottom-17 md:bottom-4 z-50 flex items-center justify-center w-12 h-12 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all duration-300 hover:scale-110 active:scale-95 group hover:shadow-[0_8px_24px_rgba(37,211,102,0.6)] cursor-pointer"
+        aria-label="Chat on WhatsApp"
+      >
+        {/* Glow ring */}
+        <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping opacity-75 group-hover:animate-none pointer-events-none" />
+        <svg className="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.004 0C5.373 0 0 5.373 0 12c0 2.112.551 4.164 1.597 5.975L.053 24l6.19-1.62c1.737.946 3.69 1.444 5.76 1.444 6.628 0 12.001-5.373 12.001-12c0-3.201-1.245-6.209-3.506-8.473C18.236 1.248 15.228 0 12.004 0zm6.204 16.985c-.255.722-1.284 1.321-1.782 1.397-.49.074-1.121.139-1.802-.083-.435-.141-.994-.378-1.73-.69-3.13-1.325-5.181-4.52-5.337-4.733-.156-.213-1.272-1.701-1.272-3.245 0-1.545.811-2.302 1.101-2.603.29-.301.637-.378.847-.378.21 0 .42.001.603.009.19.009.444-.074.694.537.255.626.873 2.14.949 2.296.076.155.127.337.025.542-.1.205-.152.336-.304.512-.152.176-.32.392-.457.526-.153.15-.313.313-.135.622.178.309.792 1.314 1.7 2.126.963.856 1.77 1.121 2.072 1.258.303.137.48.115.659-.092.178-.207.765-.892.969-1.199.204-.306.408-.255.688-.152.28.102 1.78.841 2.086.994.306.153.51.23.585.358.077.128.077.74-.178 1.462z" />
+        </svg>
+      </a>
     </div>
   );
 }

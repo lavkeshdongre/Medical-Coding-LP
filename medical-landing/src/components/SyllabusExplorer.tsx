@@ -149,9 +149,9 @@ export default function SyllabusExplorer() {
               <div className="w-5 h-5 rounded-full bg-[#1DB954]/15 border border-[#1DB954]/30 flex items-center justify-center shrink-0">
                 <Check className="w-3 h-3 text-[#1DB954]" />
               </div>
-              <span className="text-[12px] font-bold text-white leading-snug">
+              <div className="text-[13px] font-bold text-white leading-snug">
                 {b}
-              </span>
+              </div>
               {/* <ChevronRight className="w-3.5 h-3.5 text-zinc-600 ml-auto shrink-0" /> */}
             </div>
           ))}
